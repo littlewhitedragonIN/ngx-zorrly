@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-import {ZorrlyFormFieldModule} from "./lib/form-field";
-import {ZorrlyInputModule} from "./lib/input";
+import {ZorrlyFormFieldModule} from "./form-field";
+import {ZorrlyInputModule} from "./input";
 
 @NgModule({
   declarations: [],

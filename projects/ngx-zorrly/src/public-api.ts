@@ -1,4 +1,4 @@
 /*
- * Public API Surface of ngx-zorrly
+ * Public API Surface of ngx-data-entry
  */
-export * from './zorrly/ngx-zorrly.module';
+export * from './data-entry/ngx-zorrly.module';

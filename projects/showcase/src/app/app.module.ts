@@ -9,7 +9,7 @@ import {ReactiveFormsModule, Validators} from "@angular/forms";
 import {FormlyModule} from "@ngx-formly/core";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {defaultErrorMessages} from "./form-errors";
-import {NgxZorrlyModule} from "../../../ngx-zorrly/src/zorrly/ngx-zorrly.module";
+import {NgxZorrlyModule} from "../../../ngx-zorrly/src/data-entry/ngx-zorrly.module";
 
 @NgModule({
   declarations: [

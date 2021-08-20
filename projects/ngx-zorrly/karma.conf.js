@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, '../../coverage/ngx-zorrly'),
+      dir: require('path').join(__dirname, '../../coverage/ngx-data-entry'),
       subdir: '.',
       reporters: [
         { type: 'html' },
