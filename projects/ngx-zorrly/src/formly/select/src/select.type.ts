@@ -1,28 +1,30 @@
-import {ChangeDetectionStrategy, Component, Injector, OnInit} from '@angular/core';
+import {Component, Injector, OnInit} from '@angular/core';
 import {FieldType} from '@ngx-formly/core';
 import {of} from "rxjs";
 
 @Component({
   selector: 'zorrly-select',
   template: `
-    <nz-select nzShowSearch nzAllowClear [formControl]="$any(formControl)" [nzMode]="to.mode ? to.mode : 'default'">
-      <ng-container *ngIf="opts$ | async as opts">
-        <nz-option *ngFor="let o of $any(opts)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
-      </ng-container>
-    </nz-select>
+    <ng-container *ngIf="($any(to.options) | async) as opts">
+      <nz-select nzShowSearch nzAllowClear [formControl]="$any(formControl)" [nzMode]="to.mode ? to.mode : 'default'">
+        <nz-option *ngFor="let o of opts" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
+      </nz-select>
+    </ng-container>
   `,
 })
 export class ZorrlySelect extends FieldType implements OnInit {
-  opts$: any;
 
   constructor(private injector: Injector) {
     super();
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     if (!!this.to.options_inject_token) {
-      this.to.options = await this.injector.get(this.to.options_inject_token);
+      this.injector.get(this.to.options_inject_token).subscribe((val: any) => {
+        this.to.options = of(val);
+      });
+    } else {
+      this.to.options = (of(this.to.options) as any);
     }
-    this.opts$ = Array.isArray(this.to.options) ? of(this.to.options) : this.to.options;
   }
 }
