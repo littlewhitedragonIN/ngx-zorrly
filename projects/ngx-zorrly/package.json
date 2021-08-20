@@ -1,0 +1,15 @@
+{
+  "name": "ngx-zorrly",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^12.2.0",
+    "@angular/core": "^12.2.0",
+    "@ngx-formly/core": "5.10.22",
+    "ng-zorro-antd": ">=12.0.0",
+    "date-fns": ">=2.16.1",
+    "lodash-es": ">=4.17.20"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "options": {
+    "layout": "horizontal"
+  },
+  "fields": [
+    {
+      "fieldGroup": [
+        {}
+      ]
+    }
+  ]
+}
