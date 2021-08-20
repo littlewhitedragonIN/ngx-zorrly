@@ -48,6 +48,22 @@ export class AppComponent implements OnInit {
         options_inject_token: 'sample-options',
         options: []
       }
+    },
+    {
+      key: 'date-one',
+      type: 'date',
+      templateOptions: {
+        label: 'Date One',
+        range: '-3d:+1m'
+      }
+    },
+    {
+      key: 'date-two',
+      type: 'date',
+      templateOptions: {
+        label: 'Date One',
+        range: '-3d:+1m:date-one'
+      }
     }
   ];
 

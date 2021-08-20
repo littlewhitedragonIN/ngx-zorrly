@@ -12,6 +12,11 @@ import {defaultErrorMessages} from "./form-errors";
 import {NgxZorrlyModule} from "../../../ngx-zorrly/src/data-entry/ngx-zorrly.module";
 import {NzDividerModule} from "ng-zorro-antd/divider";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {registerLocaleData} from '@angular/common';
+import en from '@angular/common/locales/en';
+import {en_US, NZ_I18N} from 'ng-zorro-antd/i18n';
+
+registerLocaleData(en);
 
 export const optionsFactory = async () => {
   return [
@@ -45,6 +50,7 @@ export const optionsFactory = async () => {
     NzDividerModule
   ],
   providers: [
+    {provide: NZ_I18N, useValue: en_US},
     {provide: 'sample-options', useFactory: optionsFactory}
   ],
   bootstrap: [AppComponent]

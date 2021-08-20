@@ -3,6 +3,7 @@ import {ZorrlyFormFieldModule} from "./form-field";
 import {ZorrlyInputModule} from "./input";
 import {ZorrlyTypeModule} from "./type";
 import {ZorrlySelectModule} from "./select";
+import {ZorrlyDateModule} from "./date";
 
 @NgModule({
   declarations: [],
@@ -10,7 +11,9 @@ import {ZorrlySelectModule} from "./select";
     ZorrlyFormFieldModule,
     ZorrlyInputModule,
     ZorrlySelectModule,
+    ZorrlyDateModule,
     ZorrlyTypeModule,
+
   ],
   exports: []
 })
