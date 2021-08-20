@@ -10,6 +10,16 @@ import {FormlyModule} from "@ngx-formly/core";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {defaultErrorMessages} from "./form-errors";
 import {NgxZorrlyModule} from "../../../ngx-zorrly/src/data-entry/ngx-zorrly.module";
+import {NzDividerModule} from "ng-zorro-antd/divider";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
+export const optionsFactory = async () => {
+  return [
+    {value: 'M', label: 'Male'},
+    {value: 'F', label: 'Female'}
+  ];
+};
+
 
 @NgModule({
   declarations: [
@@ -17,6 +27,7 @@ import {NgxZorrlyModule} from "../../../ngx-zorrly/src/data-entry/ngx-zorrly.mod
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     NzLayoutModule,
     NzFormModule,
@@ -30,9 +41,12 @@ import {NgxZorrlyModule} from "../../../ngx-zorrly/src/data-entry/ngx-zorrly.mod
       },
     ),
     NgxZorrlyModule,
-    NzButtonModule
+    NzButtonModule,
+    NzDividerModule
   ],
-  providers: [],
+  providers: [
+    {provide: 'sample-options', useFactory: optionsFactory}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

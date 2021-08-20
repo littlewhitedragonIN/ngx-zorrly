@@ -5,10 +5,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 
 import {NzInputModule} from 'ng-zorro-antd/input';
 import {NzInputNumberModule} from 'ng-zorro-antd/input-number';
-import {ZorrlyInput} from "./input.type";
+import {ZorrlySelect} from "./select.type";
+import {NzSelectModule} from "ng-zorro-antd/select";
 
 @NgModule({
-  declarations: [ZorrlyInput],
+  declarations: [ZorrlySelect],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -17,22 +18,14 @@ import {ZorrlyInput} from "./input.type";
     FormlyModule.forChild({
       types: [
         {
-          name: 'input',
-          component: ZorrlyInput,
+          name: 'select',
+          component: ZorrlySelect,
           wrappers: ['form-field'],
-        },
-        {
-          name: 'number',
-          extends: 'input',
-          defaultOptions: {
-            templateOptions: {
-              type: 'number',
-            },
-          },
         }
       ],
     }),
+    NzSelectModule,
   ],
 })
-export class ZorrlyInputModule {
+export class ZorrlySelectModule {
 }

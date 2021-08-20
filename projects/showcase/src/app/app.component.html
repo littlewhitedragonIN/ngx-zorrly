@@ -3,21 +3,30 @@
     Angular Formly ❤️ NG-ZORRO
   </nz-header>
   <nz-content>
-    <div class="inner-content">
-      <form nz-form [nzLayout]="'vertical'" [formGroup]="form" (ngSubmit)="onSubmit()">
-        <formly-form
-          [form]="form"
-          [model]="model"
-          [fields]="fields">
-        </formly-form>
-
-        <button nz-button nzType="primary" type="submit">
-          Submit
-        </button>
-        <button nz-button type="reset">
-          Reset
-        </button>
-      </form>
-    </div>
+    <nz-row [nzGutter]="24">
+      <nz-col [nzSpan]="12">
+        <div class="inner-content">
+          <form nz-form [nzLayout]="'vertical'" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <formly-form
+              [form]="form"
+              [model]="model"
+              [fields]="fields">
+            </formly-form>
+            <button nz-button nzType="primary" type="submit">
+              Submit
+            </button>
+            <button nz-button type="reset">
+              Reset
+            </button>
+          </form>
+        </div>
+      </nz-col>
+      <nz-col [nzSpan]="12">
+        <nz-divider nzText="Form Value"></nz-divider>
+        <pre>{{ form.value | json }}</pre>
+        <nz-divider nzText="Model Value"></nz-divider>
+        <pre>{{ model | json }}</pre>
+      </nz-col>
+    </nz-row>
   </nz-content>
 </nz-layout>

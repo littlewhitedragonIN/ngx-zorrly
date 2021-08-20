@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {FormlyFieldConfig} from "@ngx-formly/core";
 
@@ -7,7 +7,7 @@ import {FormlyFieldConfig} from "@ngx-formly/core";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   form = new FormGroup({});
   model = {};
   fields: FormlyFieldConfig[] = [
@@ -19,12 +19,46 @@ export class AppComponent {
         placeholder: 'Input placeholder',
         required: true,
       }
+    },
+    {
+      key: 'input-number',
+      type: 'number',
+      templateOptions: {
+        label: 'Input Number',
+        placeholder: 'Input placeholder',
+        required: true,
+      }
+    },
+    {
+      key: 'select-static',
+      type: 'select',
+      templateOptions: {
+        label: 'Select (Static)',
+        options: [
+          {value: 'M', label: 'Male'},
+          {value: 'F', label: 'Female'}
+        ]
+      }
+    },
+    {
+      key: 'select-inject',
+      type: 'select',
+      templateOptions: {
+        label: 'Select (Inject)',
+        options_inject_token: 'sample-options',
+        options: []
+      }
     }
   ];
+
+  ngOnInit(): void {
+  }
 
   onSubmit() {
     if (this.form.valid) {
       alert(JSON.stringify(this.model, null, 2));
     }
   }
+
+
 }
