@@ -26,7 +26,6 @@ const dayCalcFnFromString = (str: string): ((base: Date | string) => Date) => {
     <formly-field-ng-date-picker style="width: 100%;" [field]="field" [disabledDateFn]="disabledDateFn"
                                  [formControl]="$any(formControl)"></formly-field-ng-date-picker>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZorrlyDate extends FieldType implements OnInit {
 

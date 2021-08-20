@@ -6,6 +6,5 @@ import { FieldType } from '@ngx-formly/core';
   template: `
     zorrly-type
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZorrlyType extends FieldType {}

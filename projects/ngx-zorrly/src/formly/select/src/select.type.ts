@@ -11,7 +11,6 @@ import {of} from "rxjs";
       </ng-container>
     </nz-select>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZorrlySelect extends FieldType implements OnInit {
   opts$: any;

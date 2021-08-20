@@ -13,7 +13,6 @@ import {FieldType} from '@ngx-formly/core';
       <nz-input-number style="width: 100%" [formControl]="$any(formControl)" [formlyAttributes]="field"></nz-input-number>
     </ng-template>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZorrlyInput extends FieldType {
 }
