@@ -7,7 +7,7 @@ import {of} from "rxjs";
   template: `
     <ng-container *ngIf="($any(to.options) | async) as opts">
       <nz-select nzShowSearch nzAllowClear [formControl]="$any(formControl)" [nzMode]="to.mode ? to.mode : 'default'">
-        <nz-option *ngFor="let o of opts" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
+        <nz-option *ngFor="let o of $any(opts)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
       </nz-select>
     </ng-container>
   `,
