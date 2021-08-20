@@ -17,5 +17,5 @@ import {ZorrlyDateModule} from "./date";
   ],
   exports: []
 })
-export class NgxZorrlyModule {
+export class NgxZorrlyFormModule {
 }

@@ -9,12 +9,12 @@ import {ReactiveFormsModule, Validators} from "@angular/forms";
 import {FormlyModule} from "@ngx-formly/core";
 import {NzButtonModule} from "ng-zorro-antd/button";
 import {defaultErrorMessages} from "./form-errors";
-import {NgxZorrlyModule} from "../../../ngx-zorrly/src/data-entry/ngx-zorrly.module";
 import {NzDividerModule} from "ng-zorro-antd/divider";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 import {en_US, NZ_I18N} from 'ng-zorro-antd/i18n';
+import {NgxZorrlyFormModule} from "../../../ngx-zorrly/src/formly/ngx-zorrly-form.module";
 
 registerLocaleData(en);
 
@@ -45,7 +45,7 @@ export const optionsFactory = async () => {
         ]
       },
     ),
-    NgxZorrlyModule,
+    NgxZorrlyFormModule,
     NzButtonModule,
     NzDividerModule
   ],
