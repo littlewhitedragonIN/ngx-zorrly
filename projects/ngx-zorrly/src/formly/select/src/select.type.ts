@@ -1,13 +1,12 @@
 import {Component, Injector, OnInit} from '@angular/core';
 import {FieldType} from '@ngx-formly/core';
-import {of} from "rxjs";
 
 @Component({
   selector: 'zorrly-select',
   template: `
-    <ng-container *ngIf="($any(to.options) | async) as opts">
+    <ng-container *ngIf="$any(this.to.options) && $any(this.to.options).length > 0">
       <nz-select nzShowSearch nzAllowClear [formControl]="$any(formControl)" [nzMode]="to.mode ? to.mode : 'default'">
-        <nz-option *ngFor="let o of $any(opts)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
+        <nz-option *ngFor="let o of $any(this.to.options)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
       </nz-select>
     </ng-container>
   `,
@@ -18,13 +17,9 @@ export class ZorrlySelect extends FieldType implements OnInit {
     super();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     if (!!this.to.options_inject_token) {
-      this.injector.get(this.to.options_inject_token).subscribe((val: any) => {
-        this.to.options = of(val);
-      });
-    } else {
-      this.to.options = (of(this.to.options) as any);
+      this.to.options = await this.injector.get(this.to.options_inject_token);
     }
   }
 }

@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {Component} from '@angular/core';
 import {FieldWrapper} from '@ngx-formly/core';
 
 @Component({
@@ -17,8 +17,7 @@ import {FieldWrapper} from '@ngx-formly/core';
         </ng-template>
       </nz-form-control>
     </nz-form-item>
-  `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  `
 })
 export class ZorrlyFormFieldWrapper extends FieldWrapper {
   get errorState() {
