@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
 import {FormlyFieldConfig} from "@ngx-formly/core";
+import {AppService} from "./app.service";
 
 @Component({
   selector: 'app-root',
@@ -44,9 +45,9 @@ export class AppComponent implements OnInit {
       key: 'select-inject',
       type: 'select',
       templateOptions: {
+        required: true,
         label: 'Select (Inject)',
         options_inject_token: 'sample-options',
-        options: []
       }
     },
     {
@@ -67,12 +68,17 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  constructor(private app: AppService) {
+  }
+
+
   ngOnInit(): void {
+    this.app.model().subscribe((m) => this.model = m);
   }
 
   onSubmit() {
     if (this.form.valid) {
-      alert(JSON.stringify(this.model, null, 2));
+      console.log(JSON.stringify(this.model, null, 2));
     }
   }
 

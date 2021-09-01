@@ -15,14 +15,14 @@ import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 import {en_US, NZ_I18N} from 'ng-zorro-antd/i18n';
 import {NgxZorrlyFormModule} from "../../../ngx-zorrly/src/formly/ngx-zorrly-form.module";
+import {HttpClientModule} from "@angular/common/http";
+import {AppService} from "./app.service";
+import {pluck} from "rxjs/operators";
 
 registerLocaleData(en);
 
-export const optionsFactory = async () => {
-  return [
-    {value: 'M', label: 'Male'},
-    {value: 'F', label: 'Female'}
-  ];
+export const optionsFactory = async (app: AppService) => {
+  return app.options().pipe(pluck('gender')).toPromise();
 };
 
 
@@ -33,6 +33,7 @@ export const optionsFactory = async () => {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     NzLayoutModule,
     NzFormModule,
@@ -51,7 +52,7 @@ export const optionsFactory = async () => {
   ],
   providers: [
     {provide: NZ_I18N, useValue: en_US},
-    {provide: 'sample-options', useFactory: optionsFactory}
+    {provide: 'sample-options', useFactory: optionsFactory, deps: [AppService]}
   ],
   bootstrap: [AppComponent]
 })

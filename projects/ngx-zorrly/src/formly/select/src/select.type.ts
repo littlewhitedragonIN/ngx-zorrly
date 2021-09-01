@@ -4,7 +4,7 @@ import {FieldType} from '@ngx-formly/core';
 @Component({
   selector: 'zorrly-select',
   template: `
-    <ng-container *ngIf="$any(this.to.options) && $any(this.to.options).length > 0">
+    <ng-container *ngIf="$any(this.to.options)">
       <nz-select nzShowSearch nzAllowClear [formControl]="$any(formControl)" [nzMode]="to.mode ? to.mode : 'default'">
         <nz-option *ngFor="let o of $any(this.to.options)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
       </nz-select>
