@@ -25,6 +25,10 @@ export const optionsFactory = async (app: AppService) => {
   return app.options().pipe(pluck('gender')).toPromise();
 };
 
+export const optionsStreamFactory = (app: AppService) => {
+  return app.options();
+};
+
 
 @NgModule({
   declarations: [
@@ -52,7 +56,8 @@ export const optionsFactory = async (app: AppService) => {
   ],
   providers: [
     {provide: NZ_I18N, useValue: en_US},
-    {provide: 'sample-options', useFactory: optionsFactory, deps: [AppService]}
+    {provide: 'sample-options', useFactory: optionsFactory, deps: [AppService]},
+    {provide: 'options-stream', useFactory: optionsStreamFactory, deps: [AppService]}
   ],
   bootstrap: [AppComponent]
 })

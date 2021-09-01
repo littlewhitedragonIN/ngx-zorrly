@@ -2,11 +2,11 @@
   "gender": [
     {
       "value": "M",
-      "label": "Male"
+      "label": "男性"
     },
     {
       "value": "F",
-      "label": "Female"
+      "label": "女性"
     }
   ]
 }

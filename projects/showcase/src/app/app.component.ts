@@ -47,6 +47,7 @@ export class AppComponent implements OnInit {
       templateOptions: {
         required: true,
         label: 'Select (Inject)',
+        options$: 'options-stream:gender',
         options_inject_token: 'sample-options',
       }
     },

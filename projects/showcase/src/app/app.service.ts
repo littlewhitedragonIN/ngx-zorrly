@@ -12,7 +12,7 @@ export class AppService {
   }
 
   options(): Observable<any> {
-    return timer(5000).pipe(concatMap(() => this.http.get('/assets/options.json')));
+    return timer(1000).pipe(concatMap(() => this.http.get('/assets/options.json')));
   }
 
   model(): Observable<any> {
