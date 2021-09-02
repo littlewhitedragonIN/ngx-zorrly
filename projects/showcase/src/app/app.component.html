@@ -26,6 +26,8 @@
         <pre>{{ form.value | json }}</pre>
         <nz-divider nzText="Model Value"></nz-divider>
         <pre>{{ model | json }}</pre>
+        <nz-divider nzText="Date Value"></nz-divider>
+        {{ $any(model)?.date_one | date:'long' }}
       </nz-col>
     </nz-row>
   </nz-content>

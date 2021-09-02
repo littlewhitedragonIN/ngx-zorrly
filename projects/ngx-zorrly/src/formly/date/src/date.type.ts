@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FieldType} from '@ngx-formly/core';
 import {addDays, addMonths, addYears, isAfter, isBefore, parseISO} from "date-fns";
 
@@ -39,7 +39,11 @@ export class ZorrlyDate extends FieldType implements OnInit {
       const parts = this.to.range.split(':');
       this.minDateFn = parts[0] ? (current: any, base: any) => isBefore(current, dayCalcFnFromString(parts[0])(base)) : () => false;
       this.maxDateFn = parts[1] ? (current: any, base: any) => isAfter(current, dayCalcFnFromString(parts[1])(base)) : () => false;
-      this.baseFn = parts[2] ? () => this.form.get(parts[2])?.value : () => new Date();
+      if (!!parts[2]) {
+        this.baseFn = () => this.form.get(parts[2])?.value;
+      } else {
+        this.baseFn = () => new Date();
+      }
       this.disabledDateFn = this.setDisableFn();
     }
   }
@@ -50,6 +54,5 @@ export class ZorrlyDate extends FieldType implements OnInit {
       return !base || this.minDateFn(current, base) || this.maxDateFn(current, base);
     };
   }
-
 
 }

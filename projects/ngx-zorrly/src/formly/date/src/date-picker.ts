@@ -53,20 +53,12 @@ export class DatePickerComponent implements OnInit, OnDestroy, ControlValueAcces
   }
 
   writeValue(value: any): void {
-    if (!!value) {
-      this.control.patchValue(new Date(value));
-    } else {
-      this.control.patchValue(null);
-    }
+    this.control.patchValue(!!value && typeof value === 'string' ? new Date(value) : value);
   }
 
   registerOnChange(fn: any): void {
     this.onChange = (value: any) => {
-      if (!value || !this.field.templateOptions.outputFormat) {
-        fn(value);
-      } else {
-        fn(format(new Date(value), this.field.templateOptions.outputFormat));
-      }
+      fn(value);
     };
   }
 

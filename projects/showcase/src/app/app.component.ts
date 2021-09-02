@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
       }
     },
     {
-      key: 'input-number',
+      key: 'input_number',
       type: 'number',
       templateOptions: {
         label: 'Input Number',
@@ -42,7 +42,7 @@ export class AppComponent implements OnInit {
       }
     },
     {
-      key: 'select-inject',
+      key: 'select_inject',
       type: 'select',
       templateOptions: {
         required: true,
@@ -51,7 +51,7 @@ export class AppComponent implements OnInit {
       }
     },
     {
-      key: 'date-one',
+      key: 'date_one',
       type: 'date',
       templateOptions: {
         label: 'Date One',
@@ -59,15 +59,15 @@ export class AppComponent implements OnInit {
       }
     },
     {
-      key: 'date-two',
+      key: 'date_two',
       type: 'date',
       templateOptions: {
         label: 'Date One',
-        range: '-3d:+1m:date-one'
+        range: '-3d:+1m:date_one'
       }
     },
     {
-      key: 'text-long',
+      key: 'text_long',
       type: 'textarea',
       templateOptions: {
         label: 'Long Text',
