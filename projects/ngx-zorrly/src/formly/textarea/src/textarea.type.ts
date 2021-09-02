@@ -4,7 +4,7 @@ import {FieldType} from '@ngx-formly/core';
 @Component({
   selector: 'zorrly-textarea',
   template: `
-    <textarea [rows]="to.rows" nz-input [formControl]="$any(formControl)" [nzAutosize]="to.autoSize"></textarea>
+    <textarea [rows]="to.rows" nz-input [formControl]="$any(formControl)" [nzAutosize]="to.autoSize ?? false"></textarea>
   `,
 })
 export class ZorrlyTextarea extends FieldType {

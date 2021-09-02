@@ -71,8 +71,7 @@ export class AppComponent implements OnInit {
       type: 'textarea',
       templateOptions: {
         label: 'Long Text',
-        rows: 4,
-        autoSize: false,
+        rows: 2,
       }
     }
   ];
