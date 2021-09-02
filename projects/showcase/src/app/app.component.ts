@@ -62,8 +62,8 @@ export class AppComponent implements OnInit {
       key: 'date_two',
       type: 'date',
       templateOptions: {
-        label: 'Date One',
-        range: '-3d:+1m:date_one'
+        label: 'Date Two',
+        range: '-3d:+3d:date_one'
       }
     },
     {

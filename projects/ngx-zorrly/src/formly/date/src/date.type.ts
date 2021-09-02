@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FieldType} from '@ngx-formly/core';
-import {addDays, addMonths, addYears, isAfter, isBefore, parseISO} from "date-fns";
+import {addDays, addMonths, addYears, isAfter, isBefore, parseISO, startOfDay} from "date-fns";
+import {Subscription} from "rxjs";
 
 
 const dayCalcRegEx = /([+-]\d*)([dmy])/;
@@ -27,32 +28,43 @@ const dayCalcFnFromString = (str: string): ((base: Date | string) => Date) => {
                                  [formControl]="$any(formControl)"></formly-field-ng-date-picker>
   `,
 })
-export class ZorrlyDate extends FieldType implements OnInit {
+export class ZorrlyDate extends FieldType implements OnInit, OnDestroy {
 
   disabledDateFn: ((current: Date) => boolean) | any = null;
   minDateFn: any = null;
   maxDateFn: any = null;
-  baseFn: any = null;
+  baseDate = new Date();
+  dateSub = new Subscription();
 
   ngOnInit(): void {
     if (this.to.range && typeof this.to.range === 'string') {
       const parts = this.to.range.split(':');
       this.minDateFn = parts[0] ? (current: any, base: any) => isBefore(current, dayCalcFnFromString(parts[0])(base)) : () => false;
       this.maxDateFn = parts[1] ? (current: any, base: any) => isAfter(current, dayCalcFnFromString(parts[1])(base)) : () => false;
-      if (!!parts[2]) {
-        this.baseFn = () => this.form.get(parts[2])?.value;
-      } else {
-        this.baseFn = () => new Date();
-      }
       this.disabledDateFn = this.setDisableFn();
+
+      if (!!parts[2]) {
+        const sup = this.form.get(parts[2])?.valueChanges.subscribe((val) => {
+          this.baseDate = val;
+          if (this.formControl.value && this.disabledDateFn(this.formControl.value)) {
+            this.formControl.patchValue(null);
+          }
+        });
+        this.dateSub.add(sup);
+      }
     }
   }
 
   setDisableFn(): (current: Date) => boolean {
     return (current: Date) => {
-      const base = this.baseFn();
-      return !base || this.minDateFn(current, base) || this.maxDateFn(current, base);
+      const base = startOfDay(this.baseDate);
+      const target = startOfDay(current);
+      return !base || this.minDateFn(target, base) || this.maxDateFn(target, base);
     };
+  }
+
+  ngOnDestroy(): void {
+    this.dateSub.unsubscribe();
   }
 
 }
