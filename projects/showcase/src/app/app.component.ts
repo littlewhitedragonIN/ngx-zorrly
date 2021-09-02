@@ -47,8 +47,7 @@ export class AppComponent implements OnInit {
       templateOptions: {
         required: true,
         label: 'Select (Inject)',
-        options$: 'options-stream:gender',
-        options_inject_token: 'sample-options',
+        options$: 'options-stream:gender'
       }
     },
     {
@@ -65,6 +64,15 @@ export class AppComponent implements OnInit {
       templateOptions: {
         label: 'Date One',
         range: '-3d:+1m:date-one'
+      }
+    },
+    {
+      key: 'text-long',
+      type: 'textarea',
+      templateOptions: {
+        label: 'Long Text',
+        rows: 4,
+        autoSize: false,
       }
     }
   ];

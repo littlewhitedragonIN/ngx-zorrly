@@ -4,6 +4,7 @@ import {ZorrlyInputModule} from "./input";
 import {ZorrlyTypeModule} from "./type";
 import {ZorrlySelectModule} from "./select";
 import {ZorrlyDateModule} from "./date";
+import {ZorrlyTextAreaModule} from "./textarea";
 
 @NgModule({
   declarations: [],
@@ -12,8 +13,8 @@ import {ZorrlyDateModule} from "./date";
     ZorrlyInputModule,
     ZorrlySelectModule,
     ZorrlyDateModule,
+    ZorrlyTextAreaModule,
     ZorrlyTypeModule,
-
   ],
   exports: []
 })

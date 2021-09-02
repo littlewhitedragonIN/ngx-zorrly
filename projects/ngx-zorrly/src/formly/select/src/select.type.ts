@@ -6,11 +6,9 @@ import {pluck} from "rxjs/operators";
 @Component({
   selector: 'zorrly-select',
   template: `
-    <ng-container *ngIf="$any(this.to.options)">
-      <nz-select nzShowSearch nzAllowClear [formControl]="$any(formControl)" [nzMode]="to.mode ? to.mode : 'default'">
-        <nz-option *ngFor="let o of $any(this.to.options)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
-      </nz-select>
-    </ng-container>
+    <nz-select nzShowSearch nzAllowClear [formControl]="$any(formControl)" [nzMode]="to.mode ? to.mode : 'default'">
+      <nz-option *ngFor="let o of $any(this.to.options)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
+    </nz-select>
   `,
 })
 export class ZorrlySelect extends FieldType implements OnInit, OnDestroy {
@@ -29,8 +27,6 @@ export class ZorrlySelect extends FieldType implements OnInit, OnDestroy {
         option$ = option$.pipe(pluck(parts.slice(1, parts.length)))
       }
       this.optionSub.add(option$.subscribe((val: any) => this.to.options = val))
-    } else if (!!this.to.options_inject_token) { // for backward compatibility
-      this.to.options = await this.injector.get(this.to.options_inject_token);
     }
   }
 
