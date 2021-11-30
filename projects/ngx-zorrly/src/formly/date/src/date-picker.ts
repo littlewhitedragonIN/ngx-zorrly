@@ -1,13 +1,13 @@
 import {Component, forwardRef, Input, OnDestroy, OnInit} from '@angular/core';
 import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {add, format} from 'date-fns';
+import {add, startOfDay} from 'date-fns';
 
 
 @Component({
   selector: 'formly-field-ng-date-picker',
   template: `
     <nz-date-picker style="width: 100%" (ngModelChange)="onChange($event)"
-                    [nzShowToday]="!field.templateOptions.hideToday"
+                    [nzShowToday]="!field.templateOptions.hideToday" [nzShowTime]="showTime"
                     [nzRenderExtraFooter]="field.templateOptions.specifyDates ? specifyDates : undefined"
                     [nzDisabledDate]="disabledDateFn" [formControl]="control">
     </nz-date-picker>
@@ -36,11 +36,15 @@ export class DatePickerComponent implements OnInit, OnDestroy, ControlValueAcces
   @Input()
   field: any;
 
+  showTime: any = false;
+
   constructor() {
   }
 
   ngOnInit(): void {
-
+    if (!!this.field.templateOptions.showTime) {
+      this.showTime = {...this.field.templateOptions.showTime, nzDefaultOpenValue: startOfDay(new Date())}
+    }
   }
 
   assignDate(s: any): void {

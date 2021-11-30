@@ -5,6 +5,7 @@ import {ZorrlyTypeModule} from "./type";
 import {ZorrlySelectModule} from "./select";
 import {ZorrlyDateModule} from "./date";
 import {ZorrlyTextAreaModule} from "./textarea";
+import {ZorrlyDateRangeModule} from "./date-range/src/date-range.module";
 
 @NgModule({
   declarations: [],
@@ -13,6 +14,7 @@ import {ZorrlyTextAreaModule} from "./textarea";
     ZorrlyInputModule,
     ZorrlySelectModule,
     ZorrlyDateModule,
+    ZorrlyDateRangeModule,
     ZorrlyTextAreaModule,
     ZorrlyTypeModule,
   ],

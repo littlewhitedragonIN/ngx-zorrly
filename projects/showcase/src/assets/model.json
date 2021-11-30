@@ -1,8 +1,12 @@
 {
   "input": "test",
-  "input-number": 1223123,
+  "input_number": 1223123,
   "select_static": "M",
   "select_inject": "F",
-  "date_one": "2021-09-22",
-  "date_two": "2021-09-23T08:52:07.178Z"
+  "date_one": "2021-11-29T16:00:00.000Z",
+  "date_two": "2021-11-29T21:00:00.810Z",
+  "some_period": {
+    "begin": "2021-09-21T01:52:44.067Z",
+    "end": "2021-11-24T01:52:44.067Z"
+  }
 }

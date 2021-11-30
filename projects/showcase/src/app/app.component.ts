@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
       }
     },
     {
-      key: 'select-static',
+      key: 'select_static',
       type: 'select',
       templateOptions: {
         label: 'Select (Static)',
@@ -63,6 +63,7 @@ export class AppComponent implements OnInit {
       type: 'date',
       templateOptions: {
         label: 'Date Two',
+        showTime: {},
         range: '-3d:+3d:date_one'
       }
     },
@@ -72,6 +73,14 @@ export class AppComponent implements OnInit {
       templateOptions: {
         label: 'Long Text',
         rows: 2,
+      }
+    },
+    {
+      key: 'some_period',
+      type: 'date-range',
+      templateOptions: {
+        label: 'Long Text',
+        showTime: {},
       }
     }
   ];
