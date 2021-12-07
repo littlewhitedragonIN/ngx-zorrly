@@ -13,6 +13,22 @@ export class AppComponent implements OnInit {
   model = {};
   fields: FormlyFieldConfig[] = [
     {
+      key: 'some-desc',
+      type: 'description',
+      templateOptions: {
+        disabled: true,
+        style: 'margin:10px; color: red',
+        html: '<strong> Student Residence Office </strong>provides on-campus accommodation for almost 3,700 students. Our goal is to create a safe, supportive and stimulating residential community that embraces diversity, participation, learning and development of professionalism.'
+      }
+    }, {
+      key: 'uploads',
+      type: 'upload',
+      templateOptions: {
+        label: 'Some Uploads',
+        placeholder: 'Input placeholder',
+        required: true,
+      }
+    }, {
       key: 'input',
       type: 'input',
       templateOptions: {
