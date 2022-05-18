@@ -38,6 +38,15 @@ export class AppComponent implements OnInit {
       }
     },
     {
+      key: 'input_checkbox',
+      type: 'checkbox',
+      templateOptions: {
+        label: '',
+        placeholder: 'Input placeholder',
+        required: true,
+      }
+    },
+    {
       key: 'input_number',
       type: 'number',
       templateOptions: {

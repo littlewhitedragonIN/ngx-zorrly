@@ -9,6 +9,7 @@ import {ZorrlyDescriptionModule} from "./description";
 import {ZorrlyTextAreaModule} from "./textarea";
 import {ZorrlyPlainModule} from "./plain";
 import {ZorrlyUploadModule} from "./upload";
+import {ZorrlyCheckboxModule} from "./checkbox";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {ZorrlyUploadModule} from "./upload";
     ZorrlyTextAreaModule,
     ZorrlyTypeModule,
     ZorrlyDescriptionModule,
-    ZorrlyUploadModule
+    ZorrlyUploadModule,
+    ZorrlyCheckboxModule,
   ],
   exports: []
 })
