@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
       type: 'checkbox',
       templateOptions: {
         label: '',
+        style: 'margin-left:50px',
         placeholder: 'Input placeholder',
         required: true,
       }
