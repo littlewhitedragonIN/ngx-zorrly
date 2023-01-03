@@ -22,7 +22,7 @@ import {map, firstValueFrom} from "rxjs/operators";
 registerLocaleData(en);
 
 export const optionsFactory =  (app: AppService) => {
-  return firstValueFrom(app.options().pipe(map((o: { [x: string]: any; }) => o['gender']));
+  return firstValueFrom(app.options().pipe(map((o: { [x: string]: any; }) => o['gender'])));
 };
 
 export const optionsStreamFactory = (app: AppService) => {
