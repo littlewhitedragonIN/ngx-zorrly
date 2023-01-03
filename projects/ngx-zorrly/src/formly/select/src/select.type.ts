@@ -1,7 +1,7 @@
 import {Component, Injector, OnDestroy, OnInit} from '@angular/core';
 import {FieldType, FieldTypeConfig} from '@ngx-formly/core';
 import {Subscription} from "rxjs";
-import {pluck} from "rxjs/operators";
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'zorrly-select',
@@ -19,12 +19,12 @@ export class ZorrlySelect extends FieldType<FieldTypeConfig> implements OnInit, 
     super();
   }
 
-   ngOnInit() {
+  ngOnInit() {
     if (!!this.props.options$) {
       const parts = this.props.options$.split(':');
       let option$ = this.injector.get(parts[0]);
       if (parts.length > 1) {
-        option$ = option$.pipe(pluck(parts.slice(1, parts.length)))
+        option$ = option$.pipe(map((o: any) => o[parts[1]]))
       }
       this.optionSub.add(option$.subscribe((val: any) => this.props.options = val))
     }
