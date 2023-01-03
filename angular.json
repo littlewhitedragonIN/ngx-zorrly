@@ -139,5 +139,8 @@
       }
     }
   },
-  "defaultProject": "ngx-zorrly"
+  "defaultProject": "ngx-zorrly",
+  "cli": {
+    "analytics": false
+  }
 }

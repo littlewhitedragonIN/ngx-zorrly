@@ -17,7 +17,8 @@ import {en_US, NZ_I18N} from 'ng-zorro-antd/i18n';
 import {NgxZorrlyFormModule} from "../../../ngx-zorrly/src/formly/ngx-zorrly-form.module";
 import {HttpClientModule} from "@angular/common/http";
 import {AppService} from "./app.service";
-import {map, firstValueFrom} from "rxjs/operators";
+import {map} from "rxjs/operators";
+import { firstValueFrom } from 'rxjs';
 
 registerLocaleData(en);
 
