@@ -16,7 +16,6 @@ import {startOfDay} from 'date-fns';
     },
   ],
 })
-// tslint:disable-next-line:directive-class-suffix
 export class DateRangePickerComponent implements OnInit, OnDestroy, ControlValueAccessor {
   onChange: any;
   onTouched: any;
@@ -33,8 +32,8 @@ export class DateRangePickerComponent implements OnInit, OnDestroy, ControlValue
   }
 
   ngOnInit(): void {
-    if (!!this.field.templateOptions.showTime) {
-      this.showTime = {...this.field.templateOptions.showTime, nzDefaultOpenValue: startOfDay(new Date())}
+    if (!!this.field.props.showTime) {
+      this.showTime = {...this.field.props.showTime, nzDefaultOpenValue: startOfDay(new Date())}
     }
   }
 

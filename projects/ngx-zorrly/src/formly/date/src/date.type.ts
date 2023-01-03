@@ -37,8 +37,8 @@ export class ZorrlyDate extends FieldType implements OnInit, OnDestroy {
   dateSub = new Subscription();
 
   ngOnInit(): void {
-    if (this.to.range && typeof this.to.range === 'string') {
-      const parts = this.to.range.split(':');
+    if (this.props.range && typeof this.props.range === 'string') {
+      const parts = this.props.range.split(':');
       this.minDateFn = parts[0] ? (current: any, base: any) => isBefore(current, dayCalcFnFromString(parts[0])(base)) : () => false;
       this.maxDateFn = parts[1] ? (current: any, base: any) => isAfter(current, dayCalcFnFromString(parts[1])(base)) : () => false;
       this.disabledDateFn = this.setDisableFn();

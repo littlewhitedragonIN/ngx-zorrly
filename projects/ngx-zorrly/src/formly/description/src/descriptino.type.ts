@@ -1,14 +1,11 @@
 import {Component} from '@angular/core';
-import {FieldType} from '@ngx-formly/core';
+import {FieldType, FieldTypeConfig} from '@ngx-formly/core';
 
 @Component({
   selector: 'zorrly-description',
   template: `
-    <div [innerHTML]="to.html"></div>
+    <div [innerHTML]="props.html"></div>
   `,
 })
-export class ZorrlyDescription extends FieldType {
-  constructor() {
-    super();
-  }
+export class ZorrlyDescription extends FieldType<FieldTypeConfig> {
 }

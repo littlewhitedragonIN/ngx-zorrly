@@ -1,18 +1,18 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {FieldType} from '@ngx-formly/core';
+import { Component} from '@angular/core';
+import {FieldType, FieldTypeConfig} from '@ngx-formly/core';
 
 @Component({
   selector: 'zorrly-input',
   template: `
-    <input *ngIf="to.type !== 'number'; else numberTmp"
+    <input *ngIf="props.type !== 'number'; else numberTmp"
            nz-input
-           [formControl]="$any(formControl)"
-           [type]="to.type || 'text'"
+           [formControl]="formControl"
+           [type]="props.type || 'text'"
            [formlyAttributes]="field"/>
     <ng-template #numberTmp>
-      <nz-input-number style="width: 100%" [formControl]="$any(formControl)" [formlyAttributes]="field"></nz-input-number>
+      <nz-input-number style="width: 100%" [formControl]="formControl" [formlyAttributes]="field"></nz-input-number>
     </ng-template>
   `,
 })
-export class ZorrlyInput extends FieldType {
+export class ZorrlyInput extends FieldType<FieldTypeConfig> {
 }

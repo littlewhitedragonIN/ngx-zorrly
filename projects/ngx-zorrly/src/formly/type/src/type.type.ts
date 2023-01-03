@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { FieldType } from '@ngx-formly/core';
+import {Component} from '@angular/core';
+import {FieldType, FieldTypeConfig} from '@ngx-formly/core';
 
 @Component({
   selector: 'zorrly-type',
@@ -7,4 +7,5 @@ import { FieldType } from '@ngx-formly/core';
     zorrly-type
   `,
 })
-export class ZorrlyType extends FieldType {}
+export class ZorrlyType extends FieldType<FieldTypeConfig> {
+}

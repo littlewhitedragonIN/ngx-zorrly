@@ -25,7 +25,7 @@ import {ZorrlyInput} from "./input.type";
           name: 'number',
           extends: 'input',
           defaultOptions: {
-            templateOptions: {
+            props: {
               type: 'number',
             },
           },

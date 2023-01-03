@@ -43,7 +43,6 @@ export const optionsStreamFactory = (app: AppService) => {
     NzFormModule,
     ReactiveFormsModule,
     FormlyModule.forRoot({
-        extras: {lazyRender: true},
         validationMessages: defaultErrorMessages,
         validators: [
           {name: 'email', validation: Validators.email},

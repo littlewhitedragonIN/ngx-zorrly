@@ -7,13 +7,13 @@ import {add, startOfDay} from 'date-fns';
   selector: 'formly-field-ng-date-picker',
   template: `
     <nz-date-picker style="width: 100%" (ngModelChange)="onChange($event)"
-                    [nzShowToday]="!field.templateOptions.hideToday" [nzShowTime]="showTime"
-                    [nzRenderExtraFooter]="field.templateOptions.specifyDates ? specifyDates : undefined"
+                    [nzShowToday]="!field.props.hideToday" [nzShowTime]="showTime"
+                    [nzRenderExtraFooter]="field.props.specifyDates ? specifyDates : undefined"
                     [nzDisabledDate]="disabledDateFn" [formControl]="control">
     </nz-date-picker>
     <ng-template #specifyDates>
       <div style="display: flex; justify-content: space-between;">
-        <a *ngFor="let s of field.templateOptions.specifyDates" (click)="assignDate(s.value)">{{ s.label }}</a>
+        <a *ngFor="let s of field.props.specifyDates" (click)="assignDate(s.value)">{{ s.label }}</a>
       </div>
     </ng-template>
   `,
@@ -25,7 +25,6 @@ import {add, startOfDay} from 'date-fns';
     },
   ],
 })
-// tslint:disable-next-line:directive-class-suffix
 export class DatePickerComponent implements OnInit, OnDestroy, ControlValueAccessor {
   onChange: any;
   onTouched: any;
@@ -42,8 +41,8 @@ export class DatePickerComponent implements OnInit, OnDestroy, ControlValueAcces
   }
 
   ngOnInit(): void {
-    if (!!this.field.templateOptions.showTime) {
-      this.showTime = {...this.field.templateOptions.showTime, nzDefaultOpenValue: startOfDay(new Date())}
+    if (!!this.field.props.showTime) {
+      this.showTime = {...this.field.props.showTime, nzDefaultOpenValue: startOfDay(new Date())}
     }
   }
 

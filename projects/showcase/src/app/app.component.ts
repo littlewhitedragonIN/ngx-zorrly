@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
     {
       key: 'some-desc',
       type: 'description',
-      templateOptions: {
+      props: {
         disabled: true,
         style: 'margin:10px; color: red',
         html: '<strong> Student Residence Office </strong>provides on-campus accommodation for almost 3,700 students. Our goal is to create a safe, supportive and stimulating residential community that embraces diversity, participation, learning and development of professionalism.'
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     }, {
       key: 'uploads',
       type: 'upload',
-      templateOptions: {
+      props: {
         label: 'Some Uploads',
         placeholder: 'Input placeholder',
         required: true,
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     }, {
       key: 'input',
       type: 'input',
-      templateOptions: {
+      props: {
         label: 'Input',
         placeholder: 'Input placeholder',
         required: true,
@@ -40,7 +40,7 @@ export class AppComponent implements OnInit {
     {
       key: 'input_checkbox',
       type: 'checkbox',
-      templateOptions: {
+      props: {
         label: '',
         style: 'margin-left:50px',
         placeholder: 'Input placeholder',
@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     {
       key: 'input_number',
       type: 'number',
-      templateOptions: {
+      props: {
         label: 'Input Number',
         placeholder: 'Input placeholder',
         required: true,
@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     {
       key: 'select_static',
       type: 'select',
-      templateOptions: {
+      props: {
         label: 'Select (Static)',
         options: [
           {value: 'M', label: 'Male'},
@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
     {
       key: 'select_inject',
       type: 'select',
-      templateOptions: {
+      props: {
         required: true,
         label: 'Select (Inject)',
         options$: 'options-stream:gender'
@@ -79,7 +79,7 @@ export class AppComponent implements OnInit {
     {
       key: 'date_one',
       type: 'date',
-      templateOptions: {
+      props: {
         label: 'Date One',
         range: '-3d:+1m'
       }
@@ -87,7 +87,7 @@ export class AppComponent implements OnInit {
     {
       key: 'date_two',
       type: 'date',
-      templateOptions: {
+      props: {
         label: 'Date Two',
         showTime: {},
         range: '-3d:+3d:date_one'
@@ -96,7 +96,7 @@ export class AppComponent implements OnInit {
     {
       key: 'text_long',
       type: 'textarea',
-      templateOptions: {
+      props: {
         label: 'Long Text',
         rows: 2,
       }
@@ -104,7 +104,7 @@ export class AppComponent implements OnInit {
     {
       key: 'some_period',
       type: 'date-range',
-      templateOptions: {
+      props: {
         label: 'Long Text',
         showTime: {},
       }

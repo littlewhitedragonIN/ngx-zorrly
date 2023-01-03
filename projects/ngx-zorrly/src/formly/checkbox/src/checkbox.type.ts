@@ -1,13 +1,13 @@
 import {Component} from '@angular/core';
-import {FieldType} from '@ngx-formly/core';
+import {FieldType, FieldTypeConfig} from '@ngx-formly/core';
 
 @Component({
   selector: 'zorrly-checkbox',
   template: `
-    <div [style]="to.style">
-      <label nz-checkbox [formControl]="$any(formControl)">{{to.placeholder}}</label>
+    <div [style]="props.style">
+      <label nz-checkbox [formControl]="formControl">{{props.placeholder}}</label>
     </div>
   `,
 })
-export class ZorrlyCheckbox extends FieldType {
+export class ZorrlyCheckbox extends FieldType<FieldTypeConfig> {
 }
