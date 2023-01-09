@@ -6,8 +6,8 @@ import {map} from "rxjs/operators";
 @Component({
   selector: 'zorrly-select',
   template: `
-    <nz-select nzShowSearch nzAllowClear [formControl]="formControl" [nzMode]="props.mode ? props.mode : 'default'">
-      <nz-option *ngFor="let o of $any(this.props.options)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
+    <nz-select nzShowSearch nzAllowClear [formControl]="formControl" [nzMode]="props['mode'] ? props['mode'] : 'default'">
+      <nz-option *ngFor="let o of $any(this.props?.options)" [nzValue]="o.value" [nzLabel]="o.label"></nz-option>
     </nz-select>
   `,
 })
